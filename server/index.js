@@ -44,15 +44,18 @@ app.post('/signup',
         });
     });
 
+
+
+
 let session = require('express-session');
 app.use(session({
     secret: 'dashboardAuth',
     name: 'session_id',
-    resave: false, 
+    resave: false,
     saveUninitialized: true,
-    cookie: {maxAge:5000},
-    rolling:true 
-}))
+    cookie: { maxAge: 5000 },
+    rolling: true
+}));
 
 app.post('/login',
     body('email').isEmail(),
@@ -62,16 +65,22 @@ app.post('/login',
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-        req.session.email = req.body.email;
-        req.session.password = req.body.password;
-        if(req.session.email && req.session.password){
-            res.sendFile(path.join(__dirname, '../client/views/dashboard.ejs'));
-        }
-        else {res.send("Failed to login");}
-        
+        res.session.email = req.body.email;
+        res.session.password = req.body.password;
+        // res.redirect(path.join(__dirname, '../client/views/dashboard'));
+        res.redirect('/dashboard')
     });
 
-app.get('/api/v1/users', (req, res)=>{
+app.get('/login', (req, res) => {
+    res.session.email = req.body.email;
+    res.session.password = req.body.password;
+    if (req.session.email && req.session.password) {
+        res.send("Welcome back!");
+    }
+    else { res.send("Failed to login"); }
+})
+
+app.get('/api/v1/users', (req, res) => {
     res.json(users);
 })
 

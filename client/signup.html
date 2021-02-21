@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <nav class="navbar">
-    <ul >
-        <li><a href="index.html">home</a></li>
-        <li><a href="login.html">account login</a></li>
+    <ul>
+      <li><a href="index.html">home</a></li>
+      <li><a href="login.html">account login</a></li>
     </ul>
-</nav>
+  </nav>
 
-      <aside class="app-form">
-        <header><h2 class="center">Sign Up For Your Free Trial Account</h2></header>
-          <form id="register" action="/signup" method="POST">
-       
-            <div class="form-control">
-                <label for="fullname">Please enter your full name.</label>
-                <input id="fullname" type="text" name="fullname" placeholder="first and last name" value="Colin Gao"/>
-            </div>
-              <div class="form-control">
-                  <label for="email">Enter an valid email address</label>
-                  <input id="email" type="text" name="email" placeholder="email address for the account" value="email@workspace.com"/>
-              </div>
+  <aside class="app-form">
+    <header>
+      <h2 class="center">Sign Up For Your Free Trial Account</h2>
+    </header>
+    <form id="register" action="/signup" method="POST">
 
-              <div class="form-control">
-                <label for="password">Enter a secure password</label>
-                <input id="password" type="text" name="password" placeholder="password for the account" value="temp"/>
-            </div>
+      <div class="form-control">
+        <label for="fullname">Please enter your full name.</label>
+        <input id="fullname" type="text" name="fullname" placeholder="first and last name" value="Colin Gao" />
+      </div>
+      <div class="form-control">
+        <label for="email">Enter an valid email address</label>
+        <input id="email" type="text" name="email" placeholder="email address for the account"
+          value="email@workspace.com" />
+      </div>
 
-            <div class="form-control">
-             <button type="submit">create account</button>
-            </div>
-          </form>
-      </aside>
+      <div class="form-control">
+        <label for="password">Enter a secure password</label>
+        <input id="password" type="text" name="password" placeholder="password for the account" value="temp" />
+      </div>
+
+      <div class="form-control">
+        <button type="submit">create account</button>
+      </div>
+    </form>
+  </aside>
 </body>
+
 </html>
