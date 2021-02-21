@@ -7,6 +7,15 @@ const { v4: uuidv4 } = require('uuid');
 let users = require('./data/users.json');
 let dataArray = [];
 PORT = 3000;
+let session = require('express-session');
+app.use(session({
+    secret: 'dashboardAuth',
+    name: 'session_id',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 5000 },
+    rolling: true
+}));
 
 
 app.use(cors());
@@ -45,18 +54,6 @@ app.post('/signup',
     });
 
 
-
-
-let session = require('express-session');
-app.use(session({
-    secret: 'dashboardAuth',
-    name: 'session_id',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 5000 },
-    rolling: true
-}));
-
 app.post('/login',
     body('email').isEmail(),
     body('password').isLength({ min: 8 }),
@@ -65,19 +62,16 @@ app.post('/login',
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
-        res.session.email = req.body.email;
-        res.session.password = req.body.password;
-        // res.redirect(path.join(__dirname, '../client/views/dashboard'));
-        res.redirect('/dashboard')
+        req.session.email = req.body.email;
+        req.session.password = req.body.password;
+        res.redirect('/dashboard');
     });
 
-app.get('/login', (req, res) => {
-    res.session.email = req.body.email;
-    res.session.password = req.body.password;
+app.get('/dashboard', (req, res) => {
     if (req.session.email && req.session.password) {
         res.send("Welcome back!");
     }
-    else { res.send("Failed to login"); }
+    else { res.redirect('/login'); }
 })
 
 app.get('/api/v1/users', (req, res) => {
