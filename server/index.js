@@ -83,6 +83,7 @@ app.post('/signup',
             return res.status(400).json({ errors: errors.array() });
         }
         const credentials = {
+            fullname: req.body.fullname,
             email: req.body.email,
             password: req.body.password
         };
@@ -152,7 +153,6 @@ app.post('/login', (req, res) => {
 
 
 let bonusUsers = require('./data/users.json');
-const { Console } = require('console');
 app.get('/api/v1/users', (req, res) => {
     res.json(bonusUsers);
 })
