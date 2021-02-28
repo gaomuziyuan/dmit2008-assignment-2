@@ -11,7 +11,7 @@ const cors = require('cors');
 const path = require('path');
 
 // read the value of PORT NODE_EVN variable in the .env file
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // import session
 const session = require('express-session');
