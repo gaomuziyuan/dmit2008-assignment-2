@@ -25,17 +25,20 @@
 
       <div class="form-control">
         <label for="fullname">Please enter your full name.</label>
-        <input id="fullname" type="text" name="fullname" placeholder="first and last name" value="Colin Gao" />
+        <span class="warning"><%- nameWarning %></span>
+        <input id="fullname" type="text" name="fullname" placeholder="first and last name" value="<%- name %>" />
       </div>
       <div class="form-control">
         <label for="email">Enter an valid email address</label>
+        <span class="warning"><%- emailWarning %></span>
         <input id="email" type="text" name="email" placeholder="email address for the account"
-          value="email@workspace.com" />
+          value="<%- email %>" />
       </div>
 
       <div class="form-control">
         <label for="password">Enter a secure password</label>
-        <input id="password" type="text" name="password" placeholder="password for the account" value="temp" />
+        <span class="warning"><%- passwordWarning %></span>
+        <input id="password" type="text" name="password" placeholder="password for the account" value="<%- password %>" />
       </div>
 
       <div class="form-control">

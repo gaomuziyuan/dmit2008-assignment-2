@@ -13,7 +13,7 @@
   <nav class="navbar">
     <ul>
       <li><a href="index.html">home</a></li>
-      <li><a href="login.html">account login</a></li>
+      <li><a href="login">account login</a></li>
     </ul>
   </nav>
 
@@ -23,14 +23,13 @@
     </header>
     <form id="login" action="/login" method="POST">
       <div class="form-control">
-        <label for="email">Account email address <span class="warning">warning</span></label>
-        <input id="email" type="text" name="email" placeholder="account@email.com" />
-
+        <label for="email">Account email address <span class="warning"><%- emailWarning %></span></label>
+        <input id="email" type="text" name="email" placeholder="account@email.com" value="<%- email %>" />
       </div>
 
       <div class="form-control">
-        <label for="password">Account password <span class="warning">warning</span></label>
-        <input id="password" type="text" name="password" placeholder="account password " />
+        <label for="password">Account password <span class="warning"><%- passwordWarning %></span></label>
+        <input id="password" type="text" name="password" placeholder="account password" value="<%- password %>" />
       </div>
 
       <div class="form-control">
